@@ -1,0 +1,327 @@
+.appContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background-color: #f8f8f8;
+  overflow-x: hidden;
+  background-color: #E6E7E9;
+}
+
+.appContainer:global(.darkTheme) {
+  background-color: #333333;
+  color: white;
+}
+
+.controls {
+  background-color: #f8f8f8;
+  width: 19rem;
+  padding: 0.5rem;
+  transition: transform 0.25s;
+  transform: translateZ(0);
+  display: flex;
+  flex-direction: column;
+  height: 100%
+}
+
+:global(.darkTheme) .controls {
+  background-color: #666666;
+}
+
+.controls .section {
+  border-bottom: 2px dashed rgba(125, 125, 125, 0.5);
+  padding: 1rem 0;
+  flex: 0 0;
+}
+
+.controls .footerContainer {
+  margin-top: auto;
+}
+
+.dimSection {
+  justify-content: center;
+  opacity: 0.20;
+}
+
+.controls .hierarchySection {
+  overflow: auto;
+  flex: 0 1 auto;
+}
+
+.canvas {
+  flex: 1 1;
+  transition: transform 0.25s;
+  transform: translateZ(0);
+  height: 100%
+}
+
+.sliderContainer {
+  padding-right: 2em;
+  position:absolute;
+  width: 500px;
+  bottom:0;
+  right:0;
+}
+
+input[name=hideControls] {
+  display: none;
+}
+
+label.hideControls {
+  position:absolute;
+  z-index: 10;
+  top: 0;
+  left: 16.5rem;
+  transition: transform 0.25s;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  padding: 0;
+}
+
+:global(.darkTheme) label.hideControls {
+  background-color: #666666;
+}
+
+label.hideControls span {
+  transition: transform 0.5s;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  display: block;
+  transform: scale(0.5, 1);
+  font-weight: bold;
+}
+
+input[name=hideControls]:checked ~ label.hideControls {
+  transform: translate3d(-16.5rem, 0, 0);
+}
+
+input[name=hideControls]:checked ~ label.hideControls span {
+  transform: rotate(-180deg) scale(0.5, 1);
+}
+
+input[name=hideControls]:checked ~ .controls {
+  transform: translate3d(-18.5rem, 0, 0);
+}
+
+input[name=hideControls]:checked ~ .canvas {
+  transform: translate3d(-18.5rem, 0, 0);
+  margin-right: -18.5rem;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modalMain {
+  position:fixed;
+  background: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 1rem;
+  width: auto;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+
+.modalMain span {
+  display: flex;
+  flex-flow: row no-wrap;
+  align-items: center;
+}
+
+.justifySpan {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.icon {
+  padding-right: 1em;
+}
+
+.centerSpan {
+  display: flex;
+  flex: 0;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.accordionHeader {
+  font-weight: bold;
+  display: flex;
+  flex-flow: row no-wrap;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px dashed rgba(125, 125, 125, 0.5);
+  cursor: pointer;
+}
+
+.accordionHeader:hover {
+  color: #C62f39;
+}
+
+.hidden {
+  display: none;
+}
+
+.emptyDataset {
+  position:fixed;
+  background: transparent;
+  flex: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 2em;
+  padding: 1rem;
+  margin: 1rem;
+  width: auto;
+  height: auto;
+  top:50%;
+  left:60%;
+  transform: translate(-50%,-50%);
+}
+
+.label {
+  font-weight: bold;
+  flex: 0 0 6rem;
+}
+
+.emptyDataset span {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.selectorContainer {
+  display: flex;
+  align-items: center;
+}
+
+.selector {
+  flex: 1;
+}
+
+.selector select {
+  width: 100%;
+  margin: 0;
+}
+
+.checkboxContainer {
+  margin-left: 2.2rem;
+  margin-bottom: 0.33rem;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.switch {
+    position: relative; width: 3rem;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.switch input[type=checkbox] {
+    display: none;
+}
+.switchLabel {
+    display: block; overflow: hidden; cursor: pointer;
+    height: 1rem; padding: 0; line-height: 1rem;
+    border: 0px solid #FFFFFF; border-radius: 1.5rem;
+    background-color: #C9C9C9;
+}
+.switchLabel:before {
+    content: "";
+    display: block; width: 1.5rem; height: 1.5rem; margin: -0.25rem;
+    background: #e0e0e0;
+    position: absolute; top: 0; bottom: 0;
+    right: 2rem;
+    border-radius: 1.5rem;
+}
+.switch input[type=checkbox]:checked + .switchLabel {
+    background-color: #DCDCDC;
+}
+.switch input[type=checkbox]:checked + .switchLabel, .switch input[type=checkbox]:checked + .switchLabel:before {
+   border-color: #DCDCDC;
+}
+.switch input[type=checkbox]:checked + .switchLabel .switch-inner {
+    margin-left: 0;
+}
+.switch input[type=checkbox]:checked + .switchLabel:before {
+    right: 0px; 
+    background-color: #0277BD; 
+}
+
+.uploadContainer {
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-self: flex-start;
+  padding-right: 0.5em;
+}
+
+.fileUpload {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.fileUpload label {
+  flex: 0;
+  margin-right: 2em;
+}
+
+.fileUpload span {
+  white-space: nowrap;
+  flex: 1 1 auto;
+  background-color: #DCDCDC;
+  flex-wrap: nowrap !important;
+  padding: 0.25em 2em;
+}
+
+.activityIndicatorContainer {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 160px;
+  height: 160px;
+}
+
+.key {
+  padding-right: 2em;
+  position:absolute;
+  width: 405px;
+  bottom:80px;
+  right:0;
+}
+
+.key text {
+  dominant-baseline: middle;
+}
+
+:global(.darkTheme) .key text {
+  fill: white;
+}
