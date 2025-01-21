@@ -1,4 +1,4 @@
-# CRviz
+# CRV-AI
 
 [![codecov](https://codecov.io/gh/IQTLabs/CRviz/branch/master/graph/badge.svg?token=ORXmFYC3MM)](https://codecov.io/gh/IQTLabs/CRviz)
 [![Docker Hub Downloads](https://img.shields.io/docker/pulls/iqtlabs/crviz.svg)](https://hub.docker.com/u/iqtlabs)
